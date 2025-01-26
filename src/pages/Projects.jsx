@@ -169,8 +169,11 @@ const Timeline = ({ projects }) => {
               </div>
             </div>
 
-            {/* Botón "Ver Más" */}
-            <div className="mt-6 flex justify-end">
+            {/* 
+            
+            Botón "Ver Más" 
+            
+             <div className="mt-6 flex justify-end">
               <button
                 className={`text-white text-sm py-2 px-4 rounded-lg transition 
                   ${project.type === 'profesional'
@@ -181,6 +184,9 @@ const Timeline = ({ projects }) => {
                 Ver Más
               </button>
             </div>
+            
+            */}
+           
           </div>
         </div>
       ))}
@@ -221,14 +227,15 @@ export default function Projects() {
       title: "Mi Crédito App | App Mobile",
       year: "Enero 2024 - Junio 2024",
       description: `
-        Mi Crédito App es una solución móvil dirigida a vendedores que necesitan agilizar la gestión de su cartera de clientes. La aplicación permite a los usuarios registrar nuevos clientes, realizar consultas de crédito y dar seguimiento a pagos y adeudos de manera rápida y sencilla.
-        Diseñada con un enfoque en la usabilidad, la app incluye una interfaz intuitiva y características que permiten sincronizar datos en tiempo real. Con Mi Crédito App, los vendedores pueden optimizar sus operaciones diarias y mejorar su productividad.
-      `,
-      objectives: [
-        "Facilitar la gestión de créditos y pagos en tiempo real.",
-        "Proveer herramientas móviles intuitivas para vendedores.",
-        "Optimizar el seguimiento de clientes y mejorar la productividad."
-      ],
+    Mi Crédito App es una solución móvil diseñada para el usuario final que facilita la gestión de préstamos personales. Los clientes pueden consultar ofertas, solicitar créditos, ajustar plazos de pago y ver el estado de sus préstamos en tiempo real. La app también permite a los usuarios realizar pagos y gestionar sus adeudos, todo desde una interfaz intuitiva.
+    La gestión administrativa y seguimiento de los préstamos es realizada desde una app web, asegurando una experiencia eficiente tanto para los prestatarios como para los prestamistas.
+  `,
+  objectives: [
+    "Permitir a los clientes solicitar créditos y gestionar sus préstamos fácilmente.",
+    "Facilitar el ajuste de los tiempos de pago y el seguimiento de saldos.",
+    "Ofrecer una experiencia transparente con acceso a la información en tiempo real.",
+    "Garantizar un proceso ágil y sencillo para realizar pagos directamente desde la app."
+  ],
       techStack: [
         { name: "React Native", icon: FaReact, color: "blue" },
         { name: "Material Design", icon: SiMaterialdesign, color: "black" },
