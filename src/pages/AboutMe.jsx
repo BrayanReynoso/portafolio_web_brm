@@ -182,12 +182,12 @@ export default function EnhancedAboutMe() {
   const educationEvents = [
     {
       title: "Ing. Desarrollo y Gestión de Software",
-      description: "Universidad Tecnológica Emiliano Zapata",
+      description: "Universidad Tecnológica Emiliano Zapata del Estado de Morelos - UTEZ",
       date: "2023 - 2025"
     },
     {
       title: "T.S.U. Desarrollo de Software Multiplataforma",
-      description: "Universidad Tecnológica Emiliano Zapata",
+      description: "Universidad Tecnológica Emiliano Zapata del Estado de Morelos - UTEZ", 
       date: "2021 - 2023"
     }
   ];

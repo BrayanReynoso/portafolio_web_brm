@@ -82,7 +82,7 @@ export default function Home() {
         <div className="w-screen h-full flex items-center justify-center relative">
           <div className="text-center max-w-2xl px-4">
             <h1 ref={titleRef} className="welcome-title text-6xl font-bold text-blue-900 mb-6">
-              Hola!, Bienvenido a mi Portafolio Web
+              Hola, Bienvenido a mi Portafolio Web!
             </h1>
             <p ref={paragraphRef} className="text-xl text-blue-300 mb-8">
               Soy Brayan Reynoso Macedo, un desarrollador Full Stack apasionado por crear experiencias digitales únicas.
