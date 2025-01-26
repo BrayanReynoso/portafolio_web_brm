@@ -169,24 +169,6 @@ const Timeline = ({ projects }) => {
               </div>
             </div>
 
-            {/* 
-            
-            Botón "Ver Más" 
-            
-             <div className="mt-6 flex justify-end">
-              <button
-                className={`text-white text-sm py-2 px-4 rounded-lg transition 
-                  ${project.type === 'profesional'
-                    ? 'bg-green-500 hover:bg-green-400'
-                    : 'bg-purple-500 hover:bg-purple-400'}`}
-                onClick={() => console.log("Ver más:", project.title)}
-              >
-                Ver Más
-              </button>
-            </div>
-            
-            */}
-           
           </div>
         </div>
       ))}
