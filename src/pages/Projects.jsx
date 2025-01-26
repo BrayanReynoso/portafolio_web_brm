@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FaCode, FaReact, FaDatabase, FaGithub, FaBootstrap, FaCss3Alt, FaJava } from "react-icons/fa";
-import { SiMaterialdesign, SiTailwindcss } from "react-icons/si";
+import { SiDart, SiFlutter, SiMaterialdesign, SiTailwindcss } from "react-icons/si";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -72,11 +72,11 @@ const Timeline = ({ projects }) => {
 
               {/* Imágenes del Proyecto - Derecha */}
               <div className="flex-shrink-0 w-full lg:w-1/3">
-                <div className="relative w-full h-48 overflow-hidden rounded-lg">
+              <div className="relative w-full h-48 overflow-hidden rounded-lg">
                   <img
                     src={project.images[0]}
                     alt={`${project.title} screenshot`}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain" 
                   />
                 </div>
               </div>
@@ -108,7 +108,7 @@ export default function Projects() {
       description: "Formé parte del equipo que desarrolló un proyecto interno para optimizar procesos de ventas, contribuyendo a un aumento significativo en la productividad y eficiencia de la empresa.",
       techStack: [
         { name: "React", icon: FaReact, color: "blue" },
-        { name: "Bootstrap 5", icon: FaBootstrap, color: "gray" },
+        { name: "Bootstrap 5", icon: FaBootstrap, color: "purple" },
         { name: "MySQL", icon: FaDatabase, color: "orange" },
         { name: "GitHub", icon: FaGithub, color: "red" },
       ],
@@ -126,7 +126,7 @@ export default function Projects() {
       description: "Colaboré en el desarrollo de una aplicación móvil para Android utilizando React Native y JavaScript, contribuyendo a mejorar la eficiencia operativa de los vendedores",
       techStack: [
         { name: "React Native", icon: FaReact, color: "blue" },
-        { name: "Material Design", icon: SiMaterialdesign, color: "gray" },
+        { name: "Material Design", icon: SiMaterialdesign, color: "black" },
         { name: "MySQL", icon: FaDatabase, color: "orange" },
         { name: "GitHub", icon: FaGithub, color: "red" },
       ],
@@ -144,7 +144,7 @@ export default function Projects() {
       description: "Colaboré como desarrollador front-end móvil en el desarrollo de una aplicación móvil diseñada para optimizar y gestionar los movimientos de salida y entrada de un almacén. La aplicación permite a los usuarios realizar un seguimiento en tiempo real de las mercancías que entran y salen del almacén, mejorando la eficiencia en el control de inventarios. Trabajé en la creación de interfaces intuitivas y funcionales utilizando Flutter, asegurando una experiencia de usuario fluida y dinámica.",
       techStack: [
         { name: "React", icon: FaReact, color: "blue" },
-        { name: "Tailwind CSS", icon: FaCss3Alt, color: "gray" },
+        { name: "Tailwind CSS", icon: SiTailwindcss, color: "blue" },
         { name: "MySQL", icon: FaDatabase, color: "orange" },
         { name: "GitHub", icon: FaGithub, color: "red" },
       ],
@@ -162,8 +162,8 @@ export default function Projects() {
       year: "2024 - Presente",
       description: "Aplicación móvil desarrollada con Flutter para la gestión de una cafetería. Permite gestionar productos, ventas y pedidos.",
       techStack: [
-        { name: "Flutter", icon: FaReact, color: "blue" },  // Reemplazar con ícono adecuado de Flutter
-        { name: "Dart", icon: FaJava, color: "purple" },
+        { name: "Flutter", icon: SiFlutter, color: "blue" },
+        { name: "Dart", icon: SiDart, color: "black" },
         { name: "Firebase", icon: FaDatabase, color: "red" },
         { name: "GitHub", icon: FaGithub, color: "red" },
       ],
@@ -181,7 +181,7 @@ export default function Projects() {
       description: "Portafolio web desarrollado con React, Tailwind CSS y Vite. Presenta los proyectos realizados y es un ejemplo de mi trabajo en desarrollo front-end.",
       techStack: [
         { name: "React", icon: FaReact, color: "blue" },
-        { name: "Tailwind CSS", icon: FaCss3Alt, color: "gray" },
+        { name: "Tailwind CSS", icon: SiTailwindcss, color: "blue" },
         { name: "Vite", icon: FaReact, color: "purple" },
         { name: "GitHub", icon: FaGithub, color: "red" },
       ],
