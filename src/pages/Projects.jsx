@@ -262,7 +262,7 @@ export default function Projects() {
     },
     {
       uid: "brew-station-app",
-      title: "Brew Station App",
+      title: "Brew Station | App Mobile",
       year: "2024 - Presente",
       description: `
         Brew Station App es una solución digital integral para la gestión de cafeterías. La aplicación permite a los propietarios y empleados gestionar productos, ventas y pedidos en tiempo real. Con un diseño amigable y herramientas avanzadas, Brew Station ayuda a reducir el tiempo de atención al cliente y a optimizar el flujo de operaciones en la cafetería.
@@ -283,6 +283,33 @@ export default function Projects() {
         "/assets/images/brew_station/brew_station_splash.png",
         "/assets/images/brew_station/brew_station_home.png",
         "/assets/images/brew_station/brew_station_cart.png",
+      ],
+      type: "personal",
+    },
+    {
+      uid: "jeta-volkswagen-2019-landing-page",
+      title: "Landing Page | Jetta Volkswagen 2019 🚗",
+      year: "2024 - Presente",
+      description: `
+        Una landing page interactiva diseñada para mostrar un modelo 3D del Jetta Volkswagen 2019. El objetivo principal es destacar las características del vehículo a través de un diseño visualmente atractivo y funcional, permitiendo al usuario explorar el coche en detalle. Esta página cuenta con un modelo 3D interactivo que puede ser rotado, acercado y alejado, para una visualización detallada del vehículo. Además, la página está optimizada para ofrecer una experiencia de usuario fluida en todos los dispositivos.
+      `,
+      objectives: [
+        "Destacar las características del Jetta Volkswagen 2019 mediante un modelo 3D interactivo.",
+        "Permitir a los usuarios explorar el vehículo con opciones de rotación, zoom y vistas detalladas.",
+        "Crear una experiencia visual dinámica y atractiva con animaciones sincronizadas con el desplazamiento del usuario.",
+      ],
+      techStack: [
+        { name: "React Vite", icon: FaReact, color: "blue" },
+        { name: "React Three", icon: FaCode, color: "purple" },
+        { name: "React Fiber", icon: FaCode, color: "purple" },
+        { name: "GSAP", icon: FaCode, color: "green" },
+      ],
+      images: [
+        "/assets/images/landing_page_volkwagen_jetta/volkswagen_jetta.png",
+        "/assets/images/landing_page_volkwagen_jetta/volkswagen_jetta_faros.png",
+        "/assets/images/landing_page_volkwagen_jetta/volkswagen_jetta_llandas.png",
+        "/assets/images/landing_page_volkwagen_jetta/volkswagen_jetta_faros_traceros.png",
+        "/assets/images/landing_page_volkwagen_jetta/volkswagen_jetta_diseno.png"
       ],
       type: "personal",
     },
