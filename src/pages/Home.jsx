@@ -30,8 +30,7 @@ export default function Home() {
         scrollTrigger: {
           trigger: titleRef.current,
           start: "top 80%",
-          toggleActions: "play none none reverse",
-          once: true, 
+          toggleActions: "play reverse play reverse",
         },
       }
     );
@@ -48,8 +47,7 @@ export default function Home() {
         scrollTrigger: {
           trigger: paragraphRef.current,
           start: "top 80%",
-          toggleActions: "play none none reverse",
-          once: true, 
+          toggleActions: "play reverse play reverse",
         },
       }
     );
@@ -66,8 +64,7 @@ export default function Home() {
         scrollTrigger: {
           trigger: socialIconsRef.current,
           start: "top 80%",
-          toggleActions: "play none none reverse",
-          once: true, 
+          toggleActions: "play reverse play reverse",
         },
       }
     );

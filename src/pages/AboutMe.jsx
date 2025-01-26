@@ -60,7 +60,7 @@ export default function EnhancedAboutMe() {
         scrollTrigger: {
           trigger: titleRef.current,
           start: "top 80%",
-          toggleActions: "play none none reverse",
+          toggleActions: "play reverse play reverse",
         },
       }
     );
@@ -77,8 +77,7 @@ export default function EnhancedAboutMe() {
         scrollTrigger: {
           trigger: paragraphRef.current,
           start: "top 80%",
-          toggleActions: "play none none reverse",
-          once: true, 
+          toggleActions: "play reverse play reverse",
         },
       }
     );
@@ -95,8 +94,7 @@ export default function EnhancedAboutMe() {
         scrollTrigger: {
           trigger: socialIconsRef.current,
           start: "top 80%",
-          toggleActions: "play none none reverse",
-          once: true, 
+          toggleActions: "play reverse play reverse",
         },
       }
     );
@@ -113,8 +111,7 @@ export default function EnhancedAboutMe() {
         scrollTrigger: {
           trigger: technologiesRef.current,
           start: "top 80%",
-          toggleActions: "play none none reverse",
-          once: true, 
+          toggleActions: "play reverse play reverse",
         },
       }
     );
@@ -131,8 +128,7 @@ export default function EnhancedAboutMe() {
         scrollTrigger: {
           trigger: educationRef.current,
           start: "top 80%",
-          toggleActions: "play none none reverse",
-          once: true, 
+          toggleActions: "play reverse play reverse",
         },
       }
     );
@@ -149,8 +145,7 @@ export default function EnhancedAboutMe() {
         scrollTrigger: {
           trigger: achievementsRef.current,
           start: "top 80%",
-          toggleActions: "play none none reverse",
-          once: true, 
+          toggleActions: "play reverse play reverse",
         },
       }
     );
