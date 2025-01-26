@@ -78,6 +78,7 @@ export default function EnhancedAboutMe() {
           trigger: paragraphRef.current,
           start: "top 80%",
           toggleActions: "play none none reverse",
+          once: true, 
         },
       }
     );
@@ -95,6 +96,7 @@ export default function EnhancedAboutMe() {
           trigger: socialIconsRef.current,
           start: "top 80%",
           toggleActions: "play none none reverse",
+          once: true, 
         },
       }
     );
@@ -112,6 +114,7 @@ export default function EnhancedAboutMe() {
           trigger: technologiesRef.current,
           start: "top 80%",
           toggleActions: "play none none reverse",
+          once: true, 
         },
       }
     );
@@ -129,6 +132,7 @@ export default function EnhancedAboutMe() {
           trigger: educationRef.current,
           start: "top 80%",
           toggleActions: "play none none reverse",
+          once: true, 
         },
       }
     );
@@ -146,6 +150,7 @@ export default function EnhancedAboutMe() {
           trigger: achievementsRef.current,
           start: "top 80%",
           toggleActions: "play none none reverse",
+          once: true, 
         },
       }
     );

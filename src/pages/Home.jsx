@@ -31,6 +31,7 @@ export default function Home() {
           trigger: titleRef.current,
           start: "top 80%",
           toggleActions: "play none none reverse",
+          once: true, 
         },
       }
     );
@@ -48,6 +49,7 @@ export default function Home() {
           trigger: paragraphRef.current,
           start: "top 80%",
           toggleActions: "play none none reverse",
+          once: true, 
         },
       }
     );
@@ -65,6 +67,7 @@ export default function Home() {
           trigger: socialIconsRef.current,
           start: "top 80%",
           toggleActions: "play none none reverse",
+          once: true, 
         },
       }
     );
@@ -88,7 +91,7 @@ export default function Home() {
               <a href="https://github.com/BrayanReynoso" target="_blank" rel="noopener noreferrer" className="hover:text-blue-900 transition">
                 <FaGithub className='text-blue-900'/>
               </a>
-              <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" className="hover:text-blue-900 transition">
+              <a href="https://www.linkedin.com/in/brayan-reynoso-macedo-55a216283/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-900 transition">
                 <FaLinkedin  className='text-blue-900'/>
               </a>
              

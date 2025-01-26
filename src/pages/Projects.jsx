@@ -1,96 +1,29 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import {
-  FaReact, FaAngular, FaDatabase, FaJava,
-  FaGithub, FaBootstrap, FaCode, FaArrowLeft, FaArrowRight
-} from "react-icons/fa";
-import { FaCss3Alt } from "react-icons/fa6";
-import { SiMaterialdesign } from "react-icons/si";
-import useSEO from "../hooks/useSEO";
-import { LiaDev } from "react-icons/lia";
+import { FaCode, FaReact, FaDatabase, FaGithub, FaBootstrap, FaCss3Alt, FaJava } from "react-icons/fa";
+import { SiMaterialdesign, SiTailwindcss } from "react-icons/si";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const ImageCarousel = ({ images }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const nextSlide = () => {
-    setCurrentIndex((prev) =>
-      prev === images.length - 1 ? 0 : prev + 1
-    );
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex((prev) =>
-      prev === 0 ? images.length - 1 : prev - 1
-    );
-  };
-
-  return (
-    <div className="relative w-full h-full overflow-hidden rounded-lg">
-      <div
-        className="absolute inset-0 transition-transform duration-500 ease-in-out"
-        style={{
-          transform: `translateX(-${currentIndex * 100}%)`,
-          display: 'flex'
-        }}
-      >
-        {images.map((img, index) => (
-          <div
-            key={index}
-            className="w-full h-full flex-shrink-0 flex justify-center items-center"
-          >
-            <img
-              src={img}
-              alt={`Project screenshot ${index + 1}`}
-              className="w-[100%] h-[100%] object-cover"
-              style={{
-                objectFit: 'cover',
-                objectPosition: 'center',
-              }}
-            />
-          </div>
-        ))}
-      </div>
-
-      <button
-        onClick={prevSlide}
-        className="absolute left-2 top-1/2 -translate-y-1/2 
-        bg-blue-500/50 text-white p-2 rounded-full"
-      >
-        <FaArrowLeft />
-      </button>
-
-      <button
-        onClick={nextSlide}
-        className="absolute right-2 top-1/2 -translate-y-1/2 
-        bg-blue-500/50 text-white p-2 rounded-full"
-      >
-        <FaArrowRight />
-      </button>
-    </div>
-  );
-};
-
-const ProjectTimeline = ({ projects, title }) => {
-  const projectRefs = useRef([]);
+const Timeline = ({ projects }) => {
+  const eventRefs = useRef([]);
 
   useEffect(() => {
-    projectRefs.current.forEach((project, index) => {
+    eventRefs.current.forEach((event, index) => {
       gsap.fromTo(
-        project,
-        { opacity: 0, x: index % 2 === 0 ? -100 : 100 },
+        event,
+        { opacity: 0, y: 50 },
         {
           opacity: 1,
-          x: 0,
-          duration: 1,
+          y: 0,
+          duration: 0.8,
           ease: "power3.out",
           scrollTrigger: {
-            trigger: project,
+            trigger: event,
             start: "top 80%",
             end: "bottom 40%",
-            toggleActions: "play reverse play reverse",
+            toggleActions: "play none none reverse",
           },
         }
       );
@@ -98,63 +31,75 @@ const ProjectTimeline = ({ projects, title }) => {
   }, []);
 
   return (
-    <div className="relative">
-      <h2 className="text-4xl font-bold text-blue-900 text-center mb-12">
-        {title}
-      </h2>
-      <div className=" relative border-l-4 border-blue-500 pl-6">
-        {projects.map((project, index) => (
-          <div
-            key={project.uid}
-            ref={(el) => (projectRefs.current[index] = el)}
-            className={`
-              mb-10 relative
-              ${index % 2 === 0 ? 'pr-8 text-left' : 'pl-8'}
-              flex items-center space-x-8 
-              flex-row-reverse
-            `}
-          >
-            {/* Información del Proyecto */}
-            <div className="flex bg-white/10 backdrop-blur-sm rounded-3xl p-6 shadow-lg border border-blue-300/20 transform transition-all duration-300  hover:shadow-2xl hover:border-blue-400">
-              {/* Información del proyecto */}
-              <div className="flex-1 pr-6">
-                <h3 className="text-3xl font-semibold text-blue-900 mb-3 hover:text-blue-700 transition-all">
-                  {project.title}
-                </h3>
-                <p className="text-blue-700 mb-3">{project.year}</p>
-                <p className="text-blue-600 mb-5">{project.description}</p>
+    <div className="relative border-l-4 border-blue-500 pl-6 space-y-6">
+      {projects.map((project, index) => (
+        <div
+          key={index}
+          ref={(el) => (eventRefs.current[index] = el)}
+          className="relative transform transition-all hover:scale-[1.02] hover:translate-x-2"
+        >
+          {/* Ícono del evento */}
+          <div className="absolute -left-[42px] mt-1.5 w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+            <FaCode className="text-white" />
+          </div>
 
-                {/* Tecnología utilizada */}
-                <div className="flex flex-wrap justify-start space-x-4 mt-4">
-                  {project.techStack.map((tech, techIndex) => (
-                    <div
-                      key={techIndex}
-                      className="
-                        flex items-center bg-blue-200/20 
-                        rounded-full px-4 py-2 text-sm font-medium 
-                        transition-all transform hover:scale-105 hover:bg-blue-500 hover:text-white
-                      "
-                    >
-                      <tech.icon className={`mr-2 text-${tech.color}-500`} />
-                      <span className="text-blue-700">{tech.name}</span>
-                    </div>
-                  ))}
+          <div className="bg-white/10 p-6 rounded-lg shadow-lg">
+            <div className="flex flex-col lg:flex-row gap-6">
+              {/* Información del Proyecto - Izquierda */}
+              <div className="flex-1">
+                <h4 className="font-bold text-2xl text-blue-300 mb-2">{project.title}</h4>
+                <span className="text-sm text-blue-200">{project.year}</span>
+                <p className="mt-4 text-sm text-gray-300 leading-relaxed">
+                  {project.description}
+                </p>
+
+                {/* Tecnologías Usadas */}
+                <div className="mt-4">
+                  <h5 className="font-semibold text-blue-200 mb-2">Tecnologías Usadas:</h5>
+                  <div className="flex flex-wrap gap-2">
+                    {project.techStack.map((tech, i) => (
+                      <div
+                        key={i}
+                        className="flex items-center bg-white/10 rounded-full px-3 py-1"
+                      >
+                        <tech.icon className={`text-${tech.color}-500 mr-2`} />
+                        <span className="text-sm text-white">{tech.name}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
 
-              {/* Carrusel de imágenes */}
-              <div className="flex-shrink-0 w-[50%] h-[300px] rounded-lg overflow-hidden shadow-lg">
-                <ImageCarousel images={project.images} />
+              {/* Imágenes del Proyecto - Derecha */}
+              <div className="flex-shrink-0 w-full lg:w-1/3">
+                <div className="relative w-full h-48 overflow-hidden rounded-lg">
+                  <img
+                    src={project.images[0]}
+                    alt={`${project.title} screenshot`}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </div>
             </div>
+
+            {/* Botón "Ver Más" */}
+            <div className="mt-6 flex justify-end">
+              <button
+                className="bg-blue-500 text-white text-sm py-2 px-4 rounded-lg hover:bg-blue-400 transition"
+                onClick={() => console.log("Ver más:", project.title)}
+              >
+                Ver Más
+              </button>
+            </div>
           </div>
-        ))}
-      </div>
+
+        </div>
+      ))}
     </div>
   );
 };
 
-export default function EnhancedProjects() {
+export default function Projects() {
   const projects = [
     {
       uid: "si-ref-jorges-autos",
@@ -168,7 +113,7 @@ export default function EnhancedProjects() {
         { name: "GitHub", icon: FaGithub, color: "red" },
       ],
       images: [
-        "/assets/images/jorges_autos/login_screen_jorges_autos.png",
+        "public/assets/images/jorges_autos/jorges_autos_login_screen.png",
         "/assets/images/jorges_autos/screen_info_jorges_autos.jpg",
         "https://placehold.co/400x300/green/white",
       ],
@@ -196,7 +141,7 @@ export default function EnhancedProjects() {
       uid: "mi-credito-app-gestion-tareas",
       title: "Warehouse Master | App Mobile",
       year: "Noviembre 2024 - Diciembre 2024",
-      description: "Colaboré en el desarrollo de una aplicación móvil para Android utilizando React Native y JavaScript, contribuyendo a mejorar la eficiencia operativa de los vendedores",
+      description: "Colaboré como desarrollador front-end móvil en el desarrollo de una aplicación móvil diseñada para optimizar y gestionar los movimientos de salida y entrada de un almacén. La aplicación permite a los usuarios realizar un seguimiento en tiempo real de las mercancías que entran y salen del almacén, mejorando la eficiencia en el control de inventarios. Trabajé en la creación de interfaces intuitivas y funcionales utilizando Flutter, asegurando una experiencia de usuario fluida y dinámica.",
       techStack: [
         { name: "React", icon: FaReact, color: "blue" },
         { name: "Tailwind CSS", icon: FaCss3Alt, color: "gray" },
@@ -204,15 +149,13 @@ export default function EnhancedProjects() {
         { name: "GitHub", icon: FaGithub, color: "red" },
       ],
       images: [
-        "/assets/images/mi_credito_ya/login_screen_micredito.png",
+        "/assets/images/warehouse_master/warehouse_login_screen.png",
         "https://placehold.co/400x300/pink/white",
         "https://placehold.co/400x300/brown/white",
       ],
       type: "profesional",  // Tipo profesional
     },
-  ];
-
-  const personalProjects = [
+    // Proyecto personal Brew Station
     {
       uid: "brew-station-app",
       title: "Brew Station App",
@@ -251,23 +194,13 @@ export default function EnhancedProjects() {
     },
   ];
 
-  useSEO({
-    title: "Projects | My Portfolio",
-    description: "Explore professional and personal projects showcasing innovative web and mobile development.",
-    icon: <LiaDev />
-  });
-
   return (
-    <section className="bg-gradient-to-br from-blue-200 via-blue-300 to-blue-600 py-16">
-      <div className="container mx-auto px-4 max-w-5xl">
-        <ProjectTimeline
-          projects={projects}
-          title="Experiecnia Profesional"
-        />
-        <ProjectTimeline
-          projects={personalProjects}
-          title="Proyectos personales"
-        />
+    <section className="bg-gradient-to-br from-blue-900 via-blue-700 to-blue-900 py-16 w-full">
+      <div className="container mx-auto px-4">
+        <h2 className="text-4xl font-bold text-white text-center mb-12">
+          Mis Proyectos
+        </h2>
+        <Timeline projects={projects} />
       </div>
     </section>
   );
