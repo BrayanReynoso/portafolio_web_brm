@@ -188,7 +188,7 @@ export default function EnhancedAboutMe() {
   ];
 
   return (
-    <div className="h-auto bg-gradient-to-br from-blue-900 via-blue-600 to-blue-600 text-white py-16">
+    <div className="h-auto w-screen bg-gradient-to-br from-blue-900 via-blue-600 to-blue-600 text-white py-16">
       <div className="container mx-auto px-6 max-w-4xl">
         {/* Intro Section */}
         <section className="text-center mb-16" ref={titleRef}>
@@ -221,7 +221,7 @@ export default function EnhancedAboutMe() {
         {/* Education Section */}
         <section className="mb-16" ref={educationRef}>
           <h2 className="text-3xl font-semibold text-center mb-8 text-blue-200">
-            <FaGraduationCap className="inline-block mr-2 text-blue-900" /> Education
+            <FaGraduationCap className="inline-block mr-2 text-blue-900" /> Educación
           </h2>
           <Timeline events={educationEvents} />
         </section>
