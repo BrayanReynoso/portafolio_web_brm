@@ -221,7 +221,7 @@ export default function EnhancedAboutMe() {
         {/* Education Section */}
         <section className="mb-16" ref={educationRef}>
           <h2 className="text-3xl font-semibold text-center mb-8 text-blue-200">
-            <FaGraduationCap className="inline-block mr-2" /> Education
+            <FaGraduationCap className="inline-block mr-2 text-blue-900" /> Education
           </h2>
           <Timeline events={educationEvents} />
         </section>
@@ -229,7 +229,7 @@ export default function EnhancedAboutMe() {
         {/* Achievements Section */}
         <section ref={achievementsRef}>
           <h2 className="text-3xl font-semibold text-center mb-8 text-blue-200">
-            <FaTrophy className="inline-block mr-2" /> Logros
+            <FaTrophy className="inline-block mr-2 text-yellow-400" /> Logros
           </h2>
           <div className="bg-white/10 p-6 rounded-lg hover:bg-white/20 transition-all">
             <h3 className="text-2xl font-bold text-blue-300 mb-4">

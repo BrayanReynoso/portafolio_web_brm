@@ -3,9 +3,13 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
   FaCode, FaReact, FaDatabase, FaGithub, FaBootstrap,
-  FaLaptopCode, FaUserTie, FaChevronLeft, FaChevronRight
+  FaLaptopCode, FaUserTie, FaChevronLeft, FaChevronRight,
+  FaObjectGroup,
+  FaBusinessTime,
+  FaJava
 } from "react-icons/fa";
 import { SiDart, SiFlutter, SiMaterialdesign, SiTailwindcss } from "react-icons/si";
+import { MdPlaylistAddCheckCircle } from "react-icons/md";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,15 +25,16 @@ const ImageCarousel = ({ images, title }) => {
   };
 
   return (
-    <div className="relative w-full h-96 overflow-hidden rounded-lg group">
+    <div className="relative w-full h-64 flex items-center justify-center overflow-hidden rounded-lg group bg-black/20 p-4">
       <img
         src={images[currentImageIndex]}
         alt={`${title} screenshot`}
-        className="w-full h-full object-contain"
+        className="max-w-full max-h-full object-contain"
       />
 
       {images.length > 1 && (
         <>
+          {/* Botones de navegación */}
           <button
             onClick={prevImage}
             className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition"
@@ -43,6 +48,7 @@ const ImageCarousel = ({ images, title }) => {
             <FaChevronRight />
           </button>
 
+          {/* Indicador de página */}
           <div className="absolute bottom-2 left-1/2 -translate-x-1/2 bg-black/50 text-white px-3 py-1 rounded-full text-xs">
             {currentImageIndex + 1} / {images.length}
           </div>
@@ -69,7 +75,7 @@ const Timeline = ({ projects }) => {
             trigger: event,
             start: "top 80%",
             end: "bottom 40%",
-            toggleActions: "play none none reverse",
+            toggleActions: "play reverse play reverse",
           },
         }
       );
@@ -84,8 +90,11 @@ const Timeline = ({ projects }) => {
           ref={(el) => (eventRefs.current[index] = el)}
           className="relative transform transition-all hover:scale-[1.02] hover:translate-x-2"
         >
-          <div className={`absolute -left-[42px] mt-1.5 w-8 h-8 rounded-full flex items-center justify-center 
-            ${project.type === 'profesional' ? 'bg-green-500' : 'bg-purple-500'}`}>
+          {/* Ícono del evento */}
+          <div
+            className={`absolute -left-[42px] mt-1.5 w-8 h-8 rounded-full flex items-center justify-center 
+              ${project.type === 'profesional' ? 'bg-green-500' : 'bg-purple-500'}`}
+          >
             {project.type === 'profesional' ? (
               <FaUserTie className="text-white" />
             ) : (
@@ -93,25 +102,43 @@ const Timeline = ({ projects }) => {
             )}
           </div>
 
-          <div className={`p-6 rounded-lg shadow-lg 
-            ${project.type === 'profesional'
-              ? 'bg-green-900/20 border-l-4 border-green-500'
-              : 'bg-purple-900/20 border-l-4 border-purple-500'}`}>
-            <div className="flex flex-col lg:flex-row gap-6">
+          {/* Tarjeta del proyecto */}
+          <div
+            className={`p-6 rounded-lg shadow-lg relative 
+              ${project.type === 'profesional'
+                ? 'bg-green-900/20 border-l-4 border-green-500'
+                : 'bg-purple-900/20 border-l-4 border-purple-500'}`}
+          >
+            {/* Badge del tipo de proyecto */}
+            <span
+              className={`absolute top-4 right-4 text-sm font-semibold rounded-full px-3 py-1 z-20 
+                ${project.type === 'profesional'
+                  ? 'bg-green-500/20 text-green-300'
+                  : 'bg-purple-500/20 text-purple-300'}`}
+            >
+              {project.type === 'profesional' ? 'Proyecto Profesional' : 'Proyecto Personal'}
+            </span>
+
+            <div className="flex flex-col lg:flex-row gap-6 relative">
+              {/* Información del proyecto */}
               <div className="flex-1">
                 <div className="flex items-center justify-between">
                   <h4 className="font-bold text-2xl text-white mb-2">{project.title}</h4>
-                  <span className={`text-sm font-semibold rounded-full px-3 py-1 
-                    ${project.type === 'profesional'
-                      ? 'bg-green-500/20 text-green-300'
-                      : 'bg-purple-500/20 text-purple-300'}`}>
-                    {project.type === 'profesional' ? 'Proyecto Profesional' : 'Proyecto Personal'}
-                  </span>
                 </div>
-                <span className="text-sm text-blue-200">{project.year}</span>
+                <span className="flex items-center text-sm text-blue-200">
+                  <FaBusinessTime size={20} className="me-2" /> {project.year}
+                </span>
 
+                {/* Descripción */}
+                <p className="mt-4 text-sm text-gray-300 leading-relaxed">
+                  {project.description}
+                </p>
+
+                {/* Objetivos */}
                 <div className="mt-4">
-                  <h5 className="font-semibold text-blue-200 mb-2">Objetivos:</h5>
+                  <h5 className="flex items-center font-semibold text-blue-200 mb-2">
+                    <MdPlaylistAddCheckCircle size={20} className="me-2" /> Objetivos:
+                  </h5>
                   <ul className="list-disc list-inside text-sm text-gray-300 space-y-1">
                     {project.objectives.map((obj, i) => (
                       <li key={i}>{obj}</li>
@@ -119,10 +146,7 @@ const Timeline = ({ projects }) => {
                   </ul>
                 </div>
 
-                <p className="mt-4 text-sm text-gray-300 leading-relaxed">
-                  {project.description}
-                </p>
-
+                {/* Tecnologías */}
                 <div className="mt-4">
                   <h5 className="font-semibold text-blue-200 mb-2">Tecnologías:</h5>
                   <div className="flex flex-wrap gap-2">
@@ -139,11 +163,13 @@ const Timeline = ({ projects }) => {
                 </div>
               </div>
 
-              <div className="flex-shrink-0 w-full lg:w-1/2">
+              {/* Carrusel de imágenes */}
+              <div className="flex-shrink-0 w-full lg:w-1/2 relative flex items-center justify-center p-4">
                 <ImageCarousel images={project.images} title={project.title} />
               </div>
             </div>
 
+            {/* Botón "Ver Más" */}
             <div className="mt-6 flex justify-end">
               <button
                 className={`text-white text-sm py-2 px-4 rounded-lg transition 
@@ -165,29 +191,28 @@ const Timeline = ({ projects }) => {
 export default function Projects() {
   const projects = [
     {
-      uid: "si-ref-jorges-autos",
-      title: "SIREF | App Web",
-      year: "Mayo 2023 - Enero 2024",
+      uid: "mi-credito-app-gestion-tareas",
+      title: "Warehouse Master | App Mobile",
+      year: "Noviembre 2024 - Diciembre 2024",
       description: `
-        SIREF es una aplicación web diseñada para optimizar los procesos de ventas en empresas automotrices. Su propósito principal es centralizar y automatizar tareas administrativas y operativas, permitiendo a los equipos de ventas enfocarse en generar resultados. 
-        La plataforma incluye módulos para la gestión de inventarios, seguimiento de clientes y generación de reportes detallados que permiten tomar decisiones basadas en datos en tiempo real.
-        Al implementar SIREF, las empresas pueden mejorar significativamente la productividad, reducir errores manuales y ofrecer una experiencia de usuario más eficiente y moderna.
+        Warehouse Master es una aplicación móvil diseñada para gestionar eficientemente los movimientos de entrada y salida de mercancías en almacenes. La plataforma permite a los usuarios realizar un seguimiento en tiempo real de su inventario, optimizando así el control y reduciendo errores en el manejo de mercancías.
+        Con características como la generación de reportes y alertas automatizadas, Warehouse Master asegura que las operaciones en el almacén se realicen de manera ordenada y precisa, adaptándose a las necesidades de empresas de todos los tamaños.
       `,
       objectives: [
-        "Centralizar y automatizar procesos de ventas en empresas automotrices.",
-        "Optimizar la gestión de inventarios y seguimiento de clientes.",
-        "Facilitar la toma de decisiones basadas en datos reales."
+        "Simplificar la gestión de inventarios en almacenes.",
+        "Ofrecer seguimiento en tiempo real de movimientos de mercancías.",
+        "Reducir errores operativos y optimizar la eficiencia."
       ],
       techStack: [
-        { name: "React", icon: FaReact, color: "blue" },
-        { name: "Bootstrap 5", icon: FaBootstrap, color: "purple" },
+        { name: "Flutter", icon: SiFlutter, color: "blue" },
+        { name: "Tailwind CSS", icon: SiTailwindcss, color: "blue" },
         { name: "MySQL", icon: FaDatabase, color: "orange" },
         { name: "GitHub", icon: FaGithub, color: "red" },
       ],
       images: [
-        "public/assets/images/jorges_autos/jorges_autos_login_screen.png",
-        "/assets/images/jorges_autos/screen_info_jorges_autos.jpg",
-        "https://placehold.co/400x300/green/white",
+        "/assets/images/warehouse_master/warehouse_login_screen.png",
+        "https://placehold.co/400x300/pink/white",
+        "https://placehold.co/400x300/brown/white",
       ],
       type: "profesional",
     },
@@ -217,29 +242,32 @@ export default function Projects() {
       ],
       type: "profesional",
     },
+ 
     {
-      uid: "mi-credito-app-gestion-tareas",
-      title: "Warehouse Master | App Mobile",
-      year: "Noviembre 2024 - Diciembre 2024",
+      uid: "si-ref-jorges-autos",
+      title: "SIREF | App Web",
+      year: "Mayo 2023 - Enero 2024",
       description: `
-        Warehouse Master es una aplicación móvil diseñada para gestionar eficientemente los movimientos de entrada y salida de mercancías en almacenes. La plataforma permite a los usuarios realizar un seguimiento en tiempo real de su inventario, optimizando así el control y reduciendo errores en el manejo de mercancías.
-        Con características como la generación de reportes y alertas automatizadas, Warehouse Master asegura que las operaciones en el almacén se realicen de manera ordenada y precisa, adaptándose a las necesidades de empresas de todos los tamaños.
+        SIREF es una aplicación web diseñada para optimizar los procesos de ventas en empresas automotrices. Su propósito principal es centralizar y automatizar tareas administrativas y operativas, permitiendo a los equipos de ventas enfocarse en generar resultados. 
+        La plataforma incluye módulos para la gestión de inventarios, seguimiento de clientes y generación de reportes detallados que permiten tomar decisiones basadas en datos en tiempo real.
+        Al implementar SIREF, se aumenta la productividad, y se reducen errores manuales y ofrece una experiencia de usuario más eficiente y moderna.
       `,
       objectives: [
-        "Simplificar la gestión de inventarios en almacenes.",
-        "Ofrecer seguimiento en tiempo real de movimientos de mercancías.",
-        "Reducir errores operativos y optimizar la eficiencia."
+        "Centralizar y automatizar procesos de ventas en empresas automotrices.",
+        "Optimizar la gestión de inventarios y seguimiento de clientes.",
+        "Facilitar la toma de decisiones basadas en datos reales."
       ],
       techStack: [
-        { name: "Flutter", icon: SiFlutter, color: "blue" },
-        { name: "Tailwind CSS", icon: SiTailwindcss, color: "blue" },
+        { name: "React", icon: FaReact, color: "blue" },
+        { name: "Bootstrap 5", icon: FaBootstrap, color: "purple" },
         { name: "MySQL", icon: FaDatabase, color: "orange" },
         { name: "GitHub", icon: FaGithub, color: "red" },
+        {name: "Spring Boot", icon: FaJava, color: "green"},
       ],
       images: [
-        "/assets/images/warehouse_master/warehouse_login_screen.png",
-        "https://placehold.co/400x300/pink/white",
-        "https://placehold.co/400x300/brown/white",
+        "public/assets/images/jorges_autos/jorges_autos_login_screen.png",
+        "/assets/images/jorges_autos/screen_info_jorges_autos.jpg",
+        "https://placehold.co/400x300/green/white",
       ],
       type: "profesional",
     },
