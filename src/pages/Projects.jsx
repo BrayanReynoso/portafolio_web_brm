@@ -198,7 +198,7 @@ export default function Projects() {
         { name: "GitHub", icon: FaGithub, color: "red" },
       ],
       images: [
-        "/assets/images/warehouse_master/warehouse_login_screen.png",
+        "assets/images/warehouse_master/warehouse_login_screen.png",
         "https://placehold.co/400x300/pink/white",
         "https://placehold.co/400x300/brown/white",
       ],
@@ -225,9 +225,9 @@ export default function Projects() {
         { name: "GitHub", icon: FaGithub, color: "red" },
       ],
       images: [
-        "/assets/images/mi_credito_ya/micredito_screen_login.png",
-        "https://placehold.co/400x300/purple/white",
-        "https://placehold.co/400x300/yellow/black",
+        "assets/images/mi_credito_ya/micredito_screen_login.png",
+        "assets/images/mi_credito_ya/mi_credito_ya_prestamo_screen.png",
+        "assets/images/mi_credito_ya/mi_credito_ya_profile.png",
       ],
       type: "profesional",
     },
@@ -254,8 +254,8 @@ export default function Projects() {
         {name: "Spring Boot", icon: FaJava, color: "green"},
       ],
       images: [
-        "public/assets/images/jorges_autos/jorges_autos_login_screen.png",
-        "/assets/images/jorges_autos/screen_info_jorges_autos.jpg",
+        "assets/images/jorges_autos/jorges_autos_login_screen_img.png",
+        "assets/images/jorges_autos/screen_info_jorges_autos.jpg",
         "https://placehold.co/400x300/green/white",
       ],
       type: "profesional",
@@ -280,9 +280,9 @@ export default function Projects() {
         { name: "GitHub", icon: FaGithub, color: "red" },
       ],
       images: [
-        "/assets/images/brew_station/brew_station_splash.png",
-        "/assets/images/brew_station/brew_station_home.png",
-        "/assets/images/brew_station/brew_station_cart.png",
+        "assets/images/brew_station/brew_station_splash.png",
+        "assets/images/brew_station/brew_station_home.png",
+        "assets/images/brew_station/brew_station_cart.png",
       ],
       type: "personal",
     },
@@ -305,11 +305,11 @@ export default function Projects() {
         { name: "GSAP", icon: FaCode, color: "green" },
       ],
       images: [
-        "/assets/images/landing_page_volkwagen_jetta/volkswagen_jetta.png",
-        "/assets/images/landing_page_volkwagen_jetta/volkswagen_jetta_faros.png",
-        "/assets/images/landing_page_volkwagen_jetta/volkswagen_jetta_llandas.png",
-        "/assets/images/landing_page_volkwagen_jetta/volkswagen_jetta_faros_traceros.png",
-        "/assets/images/landing_page_volkwagen_jetta/volkswagen_jetta_diseno.png"
+        "assets/images/landing_page_volkwagen_jetta/volkswagen_jetta.png",
+        "assets/images/landing_page_volkwagen_jetta/volkswagen_jetta_faros.png",
+        "assets/images/landing_page_volkwagen_jetta/volkswagen_jetta_llandas.png",
+        "assets/images/landing_page_volkwagen_jetta/volkswagen_jetta_faros_traceros.png",
+        "assets/images/landing_page_volkwagen_jetta/volkswagen_jetta_diseno.png"
       ],
       type: "personal",
     },
@@ -333,7 +333,7 @@ export default function Projects() {
         { name: "GitHub", icon: FaGithub, color: "red" },
       ],
       images: [
-        "/assets/images/portfolio/portafolio_screen.png",
+        "assets/images/portfolio/portafolio_screen.png",
         "https://placehold.co/400x300/blue/white",
         "https://placehold.co/400x300/green/white",
       ],
