@@ -87,7 +87,7 @@ export default function Home() {
                 <a href="https://www.linkedin.com/in/brayan-reynoso-macedo-55a216283/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500 transition">
                   <FaLinkedin  className='text-blue-900 hover:text-blue-300' />
                 </a>
-                <a href="/assets/cv/CV_BRAYAN_REYNOSO_MACEDO.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500 transition">
+                <a href="assets/cv/CV_BRAYAN_REYNOSO_MACEDO.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500 transition">
                   <FaFile  className='text-blue-900 hover:text-blue-300'/>
                 </a>
               </div>

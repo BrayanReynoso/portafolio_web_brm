@@ -255,7 +255,7 @@ export default function Projects() {
       images: [
         "assets/images/jorges_autos/jorges_autos_login_screen_img.png",
         "assets/images/jorges_autos/screen_info_jorges_autos.jpg",
-        "https://placehold.co/400x300/green/white",
+        "assets/images/jorges_autos/jorges_autos_excel.jpg",
       ],
       type: "profesional",
     },
