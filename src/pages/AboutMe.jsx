@@ -8,8 +8,9 @@ import {
 } from "react-icons/fa";
 import { FaFlutter } from "react-icons/fa6";
 import { RiTailwindCssFill } from "react-icons/ri";
-import { SiTypescript, SiVuetify } from "react-icons/si";
-
+import { SiPersistent, SiTypescript, SiVuetify } from "react-icons/si";
+import useSEO from '../hooks/useSEO';
+import { MdOutlinePersonOutline } from "react-icons/md";
 gsap.registerPlugin(ScrollTrigger);
 
 const TechBadge = ({ icon: Icon, name, color }) => (
@@ -64,7 +65,6 @@ export default function EnhancedAboutMe() {
         },
       }
     );
-
     // Animación de desvanecimiento y desplazamiento para el párrafo
     gsap.fromTo(
       paragraphRef.current,
@@ -186,7 +186,6 @@ export default function EnhancedAboutMe() {
       date: "2021 - 2023"
     }
   ];
-
   return (
     <div className="h-auto w-screen bg-gradient-to-br from-blue-900 via-blue-600 to-blue-600 text-white py-16">
       <div className="container mx-auto px-6 max-w-4xl">

@@ -4,7 +4,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
   FaCode, FaReact, FaDatabase, FaGithub, FaBootstrap,
   FaLaptopCode, FaUserTie, FaChevronLeft, FaChevronRight,
-  FaObjectGroup,
   FaBusinessTime,
   FaJava
 } from "react-icons/fa";
@@ -225,7 +224,8 @@ export default function Projects() {
         { name: "GitHub", icon: FaGithub, color: "red" },
       ],
       images: [
-        "assets/images/mi_credito_ya/micredito_screen_login.png",
+        "assets/images/mi_credito_ya/mi_credito_ya_login.png",
+        "assets/images/mi_credito_ya/mi_credito_ya_home_screen.png",
         "assets/images/mi_credito_ya/mi_credito_ya_prestamo_screen.png",
         "assets/images/mi_credito_ya/mi_credito_ya_profile.png",
       ],
@@ -310,32 +310,6 @@ export default function Projects() {
         "assets/images/landing_page_volkwagen_jetta/volkswagen_jetta_llandas.png",
         "assets/images/landing_page_volkwagen_jetta/volkswagen_jetta_faros_traceros.png",
         "assets/images/landing_page_volkwagen_jetta/volkswagen_jetta_diseno.png"
-      ],
-      type: "personal",
-    },
-    {
-      uid: "portafolio-web",
-      title: "Portafolio Web",
-      year: "2024 - Presente",
-      description: `
-        Este portafolio web está diseñado para mostrar de manera profesional proyectos y habilidades de un desarrollador full stack. Con un diseño moderno y responsivo, el portafolio permite a los visitantes explorar proyectos, tecnologías utilizadas y la experiencia general del desarrollador.
-        La plataforma también incluye secciones para contacto y presentación personal, adaptándose perfectamente a cualquier dispositivo para ofrecer una navegación óptima.
-      `,
-      objectives: [
-        "Mostrar proyectos y habilidades de forma profesional y atractiva.",
-        "Crear una experiencia de usuario fluida y moderna.",
-        "Facilitar la exploración de información relevante sobre el desarrollador."
-      ],
-      techStack: [
-        { name: "React", icon: FaReact, color: "blue" },
-        { name: "Tailwind CSS", icon: SiTailwindcss, color: "blue" },
-        { name: "Vite", icon: FaReact, color: "purple" },
-        { name: "GitHub", icon: FaGithub, color: "red" },
-      ],
-      images: [
-        "assets/images/portfolio/portafolio_screen.png",
-        "https://placehold.co/400x300/blue/white",
-        "https://placehold.co/400x300/green/white",
       ],
       type: "personal",
     },

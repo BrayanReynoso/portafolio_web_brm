@@ -4,7 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server'; // Necesitamos esta fun
 export default function useSEO({ title, description, icon }) {
   useEffect(() => {
     // Cambiar el título de la página
-    document.title = title || 'Default Title';
+    document.title = title || 'Portafolio Web';
 
     // Cambiar la descripción
     const metaDescription = document.querySelector('meta[name="description"]');

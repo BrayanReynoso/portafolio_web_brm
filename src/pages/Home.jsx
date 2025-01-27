@@ -12,9 +12,9 @@ export default function Home() {
   const socialIconsRef = useRef(null);
 
   useSEO({
-    title: "Home | Mi Portafolio",
+    title: "BRM | Portafolio Web",
     description: "Conoce los proyectos en los que he trabajado y las tecnologías que he utilizado.",
-    icon: <LiaDev color='white' />,
+    icon: <LiaDev color='red' />,
   });
 
   useEffect(() => {
