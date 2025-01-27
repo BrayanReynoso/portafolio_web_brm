@@ -250,7 +250,7 @@ export default function Projects() {
     {
       uid: "mi-cartem-app-gestion-empresas",
       title: "Cartem Manager | Sistema de Gestión Empresarial",
-      year: "Noviembre 2024 - Presente",
+      year: "Diciembre 2024 - Presente",
       description: "Cartem es un sistema de gestión empresarial diseñado para administrar múltiples empresas dentro de una misma plataforma. Permite gestionar los recursos de cada empresa, incluyendo almacenes, empleados, productos y operaciones comerciales. Además, el sistema cuenta con un dashboard interactivo que ofrece análisis detallados sobre el rendimiento de cada empresa, facilitando la toma de decisiones estratégicas y mejorando la eficiencia operativa en tiempo real.",
       objectives: [
         "Gestionar múltiples empresas de manera eficiente desde una misma plataforma.",
@@ -279,7 +279,7 @@ export default function Projects() {
     {
       uid: "mi-warehouse-app-gestion-tareas",
       title: "Warehouse Master | App Mobile y Web",
-      year: "Noviembre 2024 - Diciembre 2024",
+      year: "Agosto 2024 - Octubre 2024",
       description: `
       Warehouse Master es una solución integral compuesta por una aplicación móvil y una plataforma web diseñadas para gestionar eficientemente las operaciones de almacén. La aplicación móvil se centra en los movimientos de entrada y salida de mercancías, permitiendo a los usuarios realizar un seguimiento en tiempo real del inventario, mientras que la plataforma web facilita la administración de productos, empleados, almacenes y otros recursos. Con Warehouse Master, las operaciones se realizan de manera ordenada y precisa, adaptándose a las necesidades de las empresas y mejorando significativamente sus procesos.
     `,
