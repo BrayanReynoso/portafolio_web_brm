@@ -182,8 +182,7 @@ export default function Projects() {
       title: "Warehouse Master | App Mobile",
       year: "Noviembre 2024 - Diciembre 2024",
       description: `
-        Warehouse Master es una aplicación móvil diseñada para gestionar eficientemente los movimientos de entrada y salida de mercancías en almacenes. La plataforma permite a los usuarios realizar un seguimiento en tiempo real de su inventario, optimizando así el control y reduciendo errores en el manejo de mercancías.
-        Con características como la generación de reportes y alertas automatizadas, Warehouse Master asegura que las operaciones en el almacén se realicen de manera ordenada y precisa, adaptándose a las necesidades de empresas de todos los tamaños.
+        Warehouse Master es una aplicación móvil diseñada para gestionar eficientemente los movimientos de entrada y salida de mercancías en almacenes. La plataforma permite a los usuarios realizar un seguimiento en tiempo real de su inventario, optimizando así el control y reduciendo errores en el manejo de mercancías. Warehouse Master asegura que las operaciones en el almacén se realicen de manera ordenada y precisa, adaptándose a las necesidades de la empresa y mejorando sus procesos.
       `,
       objectives: [
         "Simplificar la gestión de inventarios en almacenes.",
@@ -242,10 +241,10 @@ export default function Projects() {
         Al implementar SIREF, se aumenta la productividad, y se reducen errores manuales y ofrece una experiencia de usuario más eficiente y moderna.
       `,
       objectives: [
-        "Centralizar y automatizar procesos de ventas en empresas automotrices.",
-        "Optimizar la gestión de inventarios y seguimiento de clientes.",
-        "Facilitar la toma de decisiones basadas en datos reales."
-      ],
+        "Centralización y automatización de los procesos de ventas, permitiendo una gestión más fluida y eficiente a lo largo del ciclo de ventas.",
+        "Optimización del sistema de gestión de inventarios con un seguimiento en tiempo real, mejorando el control y la actualización de existencias.",
+        "Implementación del registro de productos mediante la importación de archivos Excel, facilitando la carga masiva de datos de manera más rápida y precisa.",
+    ],
       techStack: [
         { name: "React", icon: FaReact, color: "blue" },
         { name: "Bootstrap 5", icon: FaBootstrap, color: "purple" },
@@ -291,7 +290,7 @@ export default function Projects() {
       title: "Landing Page | Jetta Volkswagen 2019 🚗",
       year: "2024 - Presente",
       description: `
-        Una landing page interactiva diseñada para mostrar un modelo 3D del Jetta Volkswagen 2019. El objetivo principal es destacar las características del vehículo a través de un diseño visualmente atractivo y funcional, permitiendo al usuario explorar el coche en detalle. Esta página cuenta con un modelo 3D interactivo que puede ser rotado, acercado y alejado, para una visualización detallada del vehículo. Además, la página está optimizada para ofrecer una experiencia de usuario fluida en todos los dispositivos.
+        Una landing page interactiva diseñada para mostrar un modelo 3D del Jetta Volkswagen 2019. El objetivo principal es destacar las características del vehículo a través de un diseño visualmente atractivo y funcional, permitiendo al usuario explorar el coche en detalle. Esta página cuenta con un modelo 3D interactivo que puede ser rotado, acercado y alejado, para una visualización detallada del vehículo. Además, la página está optimizada para ofrecer una experiencia de usuario fluida.
       `,
       objectives: [
         "Destacar las características del Jetta Volkswagen 2019 mediante un modelo 3D interactivo.",
