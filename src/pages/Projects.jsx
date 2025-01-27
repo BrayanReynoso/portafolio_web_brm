@@ -5,9 +5,10 @@ import {
   FaCode, FaReact, FaDatabase, FaGithub, FaBootstrap,
   FaLaptopCode, FaUserTie, FaChevronLeft, FaChevronRight,
   FaBusinessTime,
-  FaJava
+  FaJava,
+  FaLink
 } from "react-icons/fa";
-import { SiDart, SiFlutter, SiMaterialdesign, SiTailwindcss } from "react-icons/si";
+import { SiDart, SiDocker, SiFlutter, SiFramer, SiMaterialdesign, SiNextdotjs, SiNextui, SiSpring, SiTailwindcss } from "react-icons/si";
 import { MdPlaylistAddCheckCircle } from "react-icons/md";
 import { IoClose } from "react-icons/io5";
 
@@ -91,18 +92,18 @@ const ImageCarousel = ({ images, title }) => {
 
       {/* Modal para ver la imagen en grande */}
       {showModal && (
-        <div className="fixed inset-0 bg-white bg-opacity-10 flex items-center justify-center z-50">
-          <div className="relative">
+        <div className="fixed inset-0 bg-gray-500 bg-opacity-60 flex items-center justify-center z-50 p-4">
+          <div className="relative w-full max-w-4xl max-h-full overflow-auto bg-white rounded-lg shadow-lg">
             <button
               onClick={closeModal}
-              className="absolute top-2 right-2 text-white text-3xl bg-blue-700 rounded-full p-1"
+              className="absolute top-2 right-2 text-black text-2xl bg-gray-200 rounded-full p-1 hover:bg-gray-300 transition"
             >
               <IoClose />
             </button>
             <img
               src={images[currentImageIndex]}
               alt={`${title} full view`}
-              className="max-w-screen-md max-h-screen object-contain"
+              className="w-full h-auto max-h-screen object-contain rounded-lg"
             />
           </div>
         </div>
@@ -214,6 +215,21 @@ const Timeline = ({ projects }) => {
                     ))}
                   </div>
                 </div>
+
+                {/* Condicional para mostrar el enlace si existe */}
+                {project.link && (
+                  <div className="mt-4 flex hover:text-black">
+                    <FaLink className="me-2" />
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-white underline "
+                    >
+                      Ver Proyecto
+                    </a>
+                  </div>
+                )}
               </div>
 
               {/* Carrusel de imágenes */}
@@ -221,7 +237,6 @@ const Timeline = ({ projects }) => {
                 <ImageCarousel images={project.images} title={project.title} />
               </div>
             </div>
-
           </div>
         </div>
       ))}
@@ -229,30 +244,64 @@ const Timeline = ({ projects }) => {
   );
 };
 
+
 export default function Projects() {
   const projects = [
     {
-      uid: "mi-credito-app-gestion-tareas",
-      title: "Warehouse Master | App Mobile",
+      uid: "mi-cartem-app-gestion-empresas",
+      title: "Cartem Manager | Sistema de Gestión Empresarial",
+      year: "Noviembre 2024 - Presente",
+      description: "Cartem es un sistema de gestión empresarial diseñado para administrar múltiples empresas dentro de una misma plataforma. Permite gestionar los recursos de cada empresa, incluyendo almacenes, empleados, productos y operaciones comerciales. Además, el sistema cuenta con un dashboard interactivo que ofrece análisis detallados sobre el rendimiento de cada empresa, facilitando la toma de decisiones estratégicas y mejorando la eficiencia operativa en tiempo real.",
+      objectives: [
+        "Gestionar múltiples empresas de manera eficiente desde una misma plataforma.",
+        "Administrar recursos como almacenes, empleados y productos por empresa.",
+        "Proveer análisis en tiempo real sobre el rendimiento de las empresas a través de un dashboard.",
+        "Mejorar la eficiencia operativa y la toma de decisiones mediante reportes detallados."
+      ],
+      techStack: [
+        { name: "Next JS", icon: SiNextdotjs, color: "blue" },
+        { name: "Tailwind CSS", icon: SiTailwindcss, color: "blue" },
+        {name: "Next UI", icon: SiNextui, color: "blue"},
+        {name: "Framer Motion", icon: SiFramer, color: "green"},
+        { name: "MySQL", icon: FaDatabase, color: "orange" },
+        { name: "Java Spring Boot", icon: SiSpring, color: "green" },
+        { name: "GitHub", icon: FaGithub, color: "red" },
+      ],
+      images: [
+        "assets/images/cartem/cartem_login.png",
+        "assets/images/cartem/cartem_dashboard.png",
+        "assets/images/cartem/cartem_profile.png",
+        "assets/images/cartem/cartem_notificaciones_screen.png",
+        "assets/images/cartem/cartem_register_modal_product.png"
+      ],
+      type: "profesional",
+    },
+    {
+      uid: "mi-warehouse-app-gestion-tareas",
+      title: "Warehouse Master | App Mobile y Web",
       year: "Noviembre 2024 - Diciembre 2024",
       description: `
-        Warehouse Master es una aplicación móvil diseñada para gestionar eficientemente los movimientos de entrada y salida de mercancías en almacenes. La plataforma permite a los usuarios realizar un seguimiento en tiempo real de su inventario, optimizando así el control y reduciendo errores en el manejo de mercancías. Warehouse Master asegura que las operaciones en el almacén se realicen de manera ordenada y precisa, adaptándose a las necesidades de la empresa y mejorando sus procesos.
-      `,
+      Warehouse Master es una solución integral compuesta por una aplicación móvil y una plataforma web diseñadas para gestionar eficientemente las operaciones de almacén. La aplicación móvil se centra en los movimientos de entrada y salida de mercancías, permitiendo a los usuarios realizar un seguimiento en tiempo real del inventario, mientras que la plataforma web facilita la administración de productos, empleados, almacenes y otros recursos. Con Warehouse Master, las operaciones se realizan de manera ordenada y precisa, adaptándose a las necesidades de las empresas y mejorando significativamente sus procesos.
+    `,
       objectives: [
         "Simplificar la gestión de inventarios en almacenes.",
-        "Ofrecer seguimiento en tiempo real de movimientos de mercancías.",
+        "Ofrecer seguimiento en tiempo real de movimientos de mercancías desde la aplicación móvil.",
+        "Facilitar la administración de productos, empleados y almacenes desde la plataforma web.",
         "Reducir errores operativos y optimizar la eficiencia."
       ],
       techStack: [
         { name: "Flutter", icon: SiFlutter, color: "blue" },
+        { name: "Material Design", icon: SiMaterialdesign, color: "black" },
+        { name: "Next JS", icon: SiNextdotjs, color: "blue" },
         { name: "Tailwind CSS", icon: SiTailwindcss, color: "blue" },
         { name: "MySQL", icon: FaDatabase, color: "orange" },
+        { name: "Java Spring Boot", icon: SiSpring, color: "green" },
+        { name: "Docker", icon: SiDocker, color: "blue" },
         { name: "GitHub", icon: FaGithub, color: "red" },
       ],
       images: [
         "assets/images/warehouse_master/warehouse_login_screen.png",
-        "https://placehold.co/400x300/pink/white",
-        "https://placehold.co/400x300/brown/white",
+        "assets/images/warehouse_master/warehouse_web_login_screen.png",
       ],
       type: "profesional",
     },
@@ -264,15 +313,16 @@ export default function Projects() {
     Mi Crédito App es una solución móvil diseñada para el usuario final que facilita la gestión de préstamos personales. Los clientes pueden consultar ofertas, solicitar créditos, ajustar plazos de pago y ver el estado de sus préstamos en tiempo real. La app también permite a los usuarios realizar pagos y gestionar sus adeudos, todo desde una interfaz intuitiva.
     La gestión administrativa y seguimiento de los préstamos es realizada desde una app web, asegurando una experiencia eficiente tanto para los prestatarios como para los prestamistas.
   `,
-  objectives: [
-    "Permitir a los clientes solicitar créditos y gestionar sus préstamos fácilmente.",
-    "Facilitar el ajuste de los tiempos de pago y el seguimiento de saldos.",
-    "Ofrecer una experiencia transparente con acceso a la información en tiempo real.",
-    "Garantizar un proceso ágil y sencillo para realizar pagos directamente desde la app."
-  ],
+      objectives: [
+        "Permitir a los clientes solicitar créditos y gestionar sus préstamos fácilmente.",
+        "Facilitar el ajuste de los tiempos de pago y el seguimiento de saldos.",
+        "Ofrecer una experiencia transparente con acceso a la información en tiempo real.",
+        "Garantizar un proceso ágil y sencillo para realizar pagos directamente desde la app."
+      ],
       techStack: [
         { name: "React Native", icon: FaReact, color: "blue" },
         { name: "Material Design", icon: SiMaterialdesign, color: "black" },
+        { name: "Java Spring Boot", icon: SiSpring, color: "green" },
         { name: "MySQL", icon: FaDatabase, color: "orange" },
         { name: "GitHub", icon: FaGithub, color: "red" },
       ],
@@ -284,7 +334,7 @@ export default function Projects() {
       ],
       type: "profesional",
     },
- 
+
     {
       uid: "si-ref-jorges-autos",
       title: "SIREF | App Web",
@@ -298,13 +348,13 @@ export default function Projects() {
         "Centralización y automatización de los procesos de ventas, permitiendo una gestión más fluida y eficiente a lo largo del ciclo de ventas.",
         "Optimización del sistema de gestión de inventarios con un seguimiento en tiempo real, mejorando el control y la actualización de existencias.",
         "Implementación del registro de productos mediante la importación de archivos Excel, facilitando la carga masiva de datos de manera más rápida y precisa.",
-    ],
+      ],
       techStack: [
         { name: "React", icon: FaReact, color: "blue" },
         { name: "Bootstrap 5", icon: FaBootstrap, color: "purple" },
         { name: "MySQL", icon: FaDatabase, color: "orange" },
         { name: "GitHub", icon: FaGithub, color: "red" },
-        {name: "Spring Boot", icon: FaJava, color: "green"},
+        { name: "Java Spring Boot", icon: SiSpring, color: "green" },
       ],
       images: [
         "assets/images/jorges_autos/jorges_autos_login_screen_img.png",
@@ -328,8 +378,9 @@ export default function Projects() {
       ],
       techStack: [
         { name: "Flutter", icon: SiFlutter, color: "blue" },
+        { name: "Material Design", icon: SiMaterialdesign, color: "black" },
         { name: "Dart", icon: SiDart, color: "black" },
-        { name: "Firebase", icon: FaDatabase, color: "red" },
+        { name: "Firestore", icon: FaDatabase, color: "red" },
         { name: "GitHub", icon: FaGithub, color: "red" },
       ],
       images: [
@@ -364,6 +415,7 @@ export default function Projects() {
         "assets/images/landing_page_volkwagen_jetta/volkswagen_jetta_faros_traceros.png",
         "assets/images/landing_page_volkwagen_jetta/volkswagen_jetta_diseno.png"
       ],
+      link: "https://brayanreynoso.github.io/landing-page-volkswagen-2019/",
       type: "personal",
     },
   ];

@@ -8,9 +8,10 @@ import {
 } from "react-icons/fa";
 import { FaFlutter } from "react-icons/fa6";
 import { RiTailwindCssFill } from "react-icons/ri";
-import { SiPersistent, SiTypescript, SiVuetify } from "react-icons/si";
+import { SiPersistent, SiPostman, SiSpring, SiTypescript, SiVuetify } from "react-icons/si";
 import useSEO from '../hooks/useSEO';
 import { MdOutlinePersonOutline } from "react-icons/md";
+import { DiFirebase } from "react-icons/di";
 gsap.registerPlugin(ScrollTrigger);
 
 const TechBadge = ({ icon: Icon, name, color }) => (
@@ -153,25 +154,28 @@ export default function EnhancedAboutMe() {
   }, []);
 
   const technologies = [
-    { name: "React", icon: FaReact, color: "text-cyan-400" },
     { name: "React Native", icon: FaReact, color: "text-blue-500" },
+    { name: "Flutter", icon: FaFlutter, color: "text-blue-500" },
+    { name: "React", icon: FaReact, color: "text-cyan-400" },
     { name: "Vue 3", icon: FaReact, color: "text-green-500" },
     { name: "Next.js", icon: FaReact, color: "text-blue-500" },
-    { name: "Node.js", icon: FaNodeJs, color: "text-green-500" },
     { name: "Angular", icon: FaAngular, color: "text-red-500" },
-    { name: "Flutter", icon: FaFlutter, color: "text-blue-500" },
-    { name: "Tailwind Css", icon: RiTailwindCssFill, color: "text-sky-400" },
+    { name: "Node.js", icon: FaNodeJs, color: "text-green-500" },
+    { name: "Tailwind CSS", icon: RiTailwindCssFill, color: "text-sky-400" },
     { name: "CSS3", icon: FaCss3Alt, color: "text-blue-500" },
     { name: "Vuetify", icon: SiVuetify, color: "text-blue-500" },
     { name: "Spring Boot", icon: FaJava, color: "text-orange-600" },
     { name: "Bootstrap", icon: FaBootstrap, color: "text-purple-500" },
     { name: "MongoDB", icon: FaDatabase, color: "text-green-500" },
     { name: "MySQL", icon: FaDatabase, color: "text-blue-500" },
-    { name: "GitHub", icon: FaGithub, color: "text-gray-500" },
+    { name: "GitHub", icon: FaGithub, color: "text-orange-500" },
     { name: "HTML5", icon: FaHtml5, color: "text-red-500" },
-    { name: "JavaScript", icon: FaJs, color: "text-yellow" },
+    { name: "JavaScript", icon: FaJs, color: "text-yellow-500" },
     { name: "TypeScript", icon: SiTypescript, color: "text-blue-500" },
     { name: "Java", icon: FaJava, color: "text-red-500" },
+    {name: "Srping Boot", icon: SiSpring, color: "text-green-600"},
+    {name: "Firebase", icon: DiFirebase, color: "text-yellow-500"},
+    {name: "Postman", icon: SiPostman, color: "text-orange-500"},
   ];
 
   const educationEvents = [

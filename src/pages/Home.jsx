@@ -78,7 +78,7 @@ export default function Home() {
                 Hola, Bienvenido a mi Portafolio Web!
               </h1>
               <p ref={paragraphRef} className="text-xl sm:text-2xl text-blue-300 mb-8">
-                Soy Brayan Reynoso Macedo, un desarrollador Full Stack apasionado por crear experiencias digitales únicas.
+                Desarrollador Full Stack apasionado por crear experiencias digitales únicas.
               </p>
               <div ref={socialIconsRef} className="flex justify-center space-x-6 text-2xl sm:text-4xl text-blue-700">
                 <a href="https://github.com/BrayanReynoso" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500 transition">
