@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
@@ -9,11 +9,14 @@ import {
 } from "react-icons/fa";
 import { SiDart, SiFlutter, SiMaterialdesign, SiTailwindcss } from "react-icons/si";
 import { MdPlaylistAddCheckCircle } from "react-icons/md";
+import { IoClose } from "react-icons/io5";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const ImageCarousel = ({ images, title }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [showModal, setShowModal] = useState(false);
+  const imageRef = useRef(null);
 
   const nextImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % images.length);
@@ -23,17 +26,49 @@ const ImageCarousel = ({ images, title }) => {
     setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
   };
 
+  const handleImageClick = () => {
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      gsap.fromTo(
+        imageRef.current,
+        { opacity: 0, x: 50 },
+        { opacity: 1, x: 0, duration: 1.5, ease: "power3.out" }
+      );
+      setCurrentImageIndex((prev) => (prev + 1) % images.length);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [images.length]);
+
+  useEffect(() => {
+    gsap.fromTo(
+      imageRef.current,
+      { opacity: 0, x: 50 },
+      { opacity: 1, x: 0, duration: 1.5, ease: "power3.out" }
+    );
+  }, [currentImageIndex]);
+
   return (
-    <div className="relative w-full h-64 flex items-center justify-center overflow-hidden rounded-lg group bg-black/20 p-4">
+    <div className="relative w-full h-64 flex items-center justify-center overflow-hidden rounded-lg group bg-black/10 p-4">
+      {/* Imagen actual del carrusel */}
       <img
+        ref={imageRef}
         src={images[currentImageIndex]}
         alt={`${title} screenshot`}
-        className="max-w-full max-h-full object-contain"
+        className="max-w-full max-h-full object-contain cursor-pointer"
+        onClick={handleImageClick}
       />
 
+      {/* Botones de navegación */}
       {images.length > 1 && (
         <>
-          {/* Botones de navegación */}
           <button
             onClick={prevImage}
             className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition"
@@ -52,6 +87,25 @@ const ImageCarousel = ({ images, title }) => {
             {currentImageIndex + 1} / {images.length}
           </div>
         </>
+      )}
+
+      {/* Modal para ver la imagen en grande */}
+      {showModal && (
+        <div className="fixed inset-0 bg-white bg-opacity-10 flex items-center justify-center z-50">
+          <div className="relative">
+            <button
+              onClick={closeModal}
+              className="absolute top-2 right-2 text-white text-3xl bg-blue-700 rounded-full p-1"
+            >
+              <IoClose />
+            </button>
+            <img
+              src={images[currentImageIndex]}
+              alt={`${title} full view`}
+              className="max-w-screen-md max-h-screen object-contain"
+            />
+          </div>
+        </div>
       )}
     </div>
   );
