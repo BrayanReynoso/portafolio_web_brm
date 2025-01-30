@@ -164,7 +164,6 @@ export default function EnhancedAboutMe() {
     { name: "Tailwind CSS", icon: RiTailwindCssFill, color: "text-sky-400" },
     { name: "CSS3", icon: FaCss3Alt, color: "text-blue-500" },
     { name: "Vuetify", icon: SiVuetify, color: "text-blue-500" },
-    { name: "Spring Boot", icon: FaJava, color: "text-orange-600" },
     { name: "Bootstrap", icon: FaBootstrap, color: "text-purple-500" },
     { name: "MongoDB", icon: FaDatabase, color: "text-green-500" },
     { name: "MySQL", icon: FaDatabase, color: "text-blue-500" },
